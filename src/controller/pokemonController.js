@@ -1,4 +1,3 @@
-const path = require("path");
 const controller = {
   pokemonGet: (req, res) => {
     const pokemonesList = [
@@ -9,9 +8,9 @@ const controller = {
     resultPokemon = pokemonesList.find((pokemon) => {
       return pokemon.id === Number(req.params.id);
     });
-    console.log(resultPokemon);
+
     if (resultPokemon !== undefined) {
-      return res.sendFile(path.join(__dirname, "../views/pokemon.html"));
+      return res.render("pokemon", { resultPokemon });
     }
     return res.send("No se encontro ese pokemon");
   },

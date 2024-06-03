@@ -1,7 +1,6 @@
-const path = require("path");
 const controller = {
   formRegisterGet: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/register.html"));
+    res.render("register");
   },
   formRegisterPost: (req, res) => {
     res.send(
@@ -9,7 +8,7 @@ const controller = {
     );
   },
   formSessionGet: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/session.html"));
+    res.render("session");
   },
   formSessionPost: (req, res) => {
     res.send("Estas enviando la informacion del formulario inicio de sesion");

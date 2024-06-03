@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const puerto = 3001;
+const PORT = 3001;
 
 const path = require("path");
 
@@ -12,9 +12,11 @@ const userRoutes = require("./routes/userRoutes");
 const mainRoutes = require("./routes/mainRoutes");
 const pomekonRoutes = require("./routes/pomekonRoutes");
 
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
 app.use("/", mainRoutes);
 app.use("/user", userRoutes);
 app.use("/pokemones", pomekonRoutes);
-app.listen(puerto, () => {
-  console.log("Servidor corriendo en http://localhost:" + puerto);
+app.listen(PORT, () => {
+  console.log("Servidor corriendo en http://localhost:" + PORT);
 });
