@@ -1,16 +1,16 @@
 const controller = {
-  formRegisterGet: (req, res) => {
+  showFormRegister: (req, res) => {
     res.render("register");
   },
-  formRegisterPost: (req, res) => {
+  createUser: (req, res) => {
     res.send(
       "Estas enviando la informacion del formulario de registro de nuevo usuario"
     );
   },
-  formSessionGet: (req, res) => {
+  showFormLogin: (req, res) => {
     res.render("session");
   },
-  formSessionPost: (req, res) => {
+  loginUser: (req, res) => {
     res.send("Estas enviando la informacion del formulario inicio de sesion");
   },
 };

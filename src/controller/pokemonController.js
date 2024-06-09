@@ -1,16 +1,16 @@
 const controller = {
-  pokemonGet: (req, res) => {
-    const pokemonesList = [
-      { nombre: "picachu", id: 1 },
-      { nombre: "alakazam", id: 2 },
+  pokemonsShow: (req, res) => {
+    const pokemons = [
+      { name: "picachu", id: 1 },
+      { name: "alakazam", id: 2 },
     ];
 
-    resultPokemon = pokemonesList.find((pokemon) => {
+    searchPokemon = pokemons.find((pokemon) => {
       return pokemon.id === Number(req.params.id);
     });
 
-    if (resultPokemon !== undefined) {
-      return res.render("pokemon", { resultPokemon });
+    if (searchPokemon !== undefined) {
+      return res.render("pokemon", { searchPokemon });
     }
     return res.send("No se encontro ese pokemon");
   },
