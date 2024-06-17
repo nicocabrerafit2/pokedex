@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "public")));
 //Requiero las rutas
-
+app.use(express.urlencoded());
 import userRoutes from "./routes/userRoutes.js";
 
 import mainRoutes from "./routes/mainRoutes.js";
@@ -22,10 +22,8 @@ import apiRoutes from "./routes/api/apiRoutes.js";
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 //Configuro las rutas
-app.use("/", mainRoutes);
-app.use("/user", userRoutes);
-app.use("/pokemones", pomekonRoutes);
-app.use("/api", apiRoutes);
+app.use("/", apiRoutes);
+
 app.listen(PORT, () => {
   console.log("Servidor corriendo en http://localhost:" + PORT);
 });
