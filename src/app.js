@@ -1,16 +1,23 @@
-const express = require("express");
+import express from "express";
 const app = express();
 // Especifico el puerto
 const PORT = 3001;
 
-const path = require("path");
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "public")));
 //Requiero las rutas
-const userRoutes = require("./routes/userRoutes");
-const mainRoutes = require("./routes/mainRoutes");
-const pomekonRoutes = require("./routes/pomekonRoutes");
-const apiRoutes = require("./routes/api/apiRoutes");
+
+import userRoutes from "./routes/userRoutes.js";
+
+import mainRoutes from "./routes/mainRoutes.js";
+
+import pomekonRoutes from "./routes/pomekonRoutes.js";
+
+import apiRoutes from "./routes/api/apiRoutes.js";
 //Configuro el view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));

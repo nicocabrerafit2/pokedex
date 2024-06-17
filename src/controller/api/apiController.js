@@ -1,10 +1,17 @@
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
 const controller = {
-  get: async (req, res) => {
-    const pokemones = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
-    return res.send(pokemones);
+  get: (req, res) => {
+    fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+      .then((response) => response.json())
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        res.status(500).send(error);
+      });
   },
 };
 
-module.exports = controller;
+export default controller;

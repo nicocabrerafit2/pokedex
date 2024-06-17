@@ -1,6 +1,7 @@
-const { Router } = require("express");
+import { Router } from "express";
 const router = Router();
-const controller = require("../controller/pokemonController");
+
+import controller from "../controller/pokemonController.js";
 router.get("/:id", controller.pokemonsShow);
 
-module.exports = router;
+export default router;
