@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+  <%- include("./partials/head.ejs") %>
     <title>Register</title>
-  </head>
-  <body>
-    <h1>Estas en el formulario de registro de nuevo usuario</h1>
-    <img src="/images/IMG_20191023_161133072.jpg" />
-  </body>
+</head>
+
+<body>
+  <h1>Estas en el formulario de registro de nuevo usuario</h1>
+
+  <form action="/register" method="post">
+    <div>
+      <label>Nombre:</label>
+      <input type="text" name="name">
+    </div>
+    <div>
+      <label>Apellido:</label>
+      <input type="text" name="lastName">
+    </div>
+    <div>
+      <label>Email:</label>
+      <input type="text" name="email">
+    </div>
+    <div>
+      <label>Contraseña:</label>
+      <input type="text" name="password">
+    </div>
+
+
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+
 </html>

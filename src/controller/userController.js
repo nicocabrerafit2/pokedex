@@ -1,6 +1,6 @@
 const controller = {
   showFormRegister: (req, res) => {
-    res.render("register");
+    res.render("register"); //http://localhost:3001/user/register
   },
   createUser: (req, res) => {
     res.send(
