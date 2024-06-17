@@ -12,12 +12,12 @@ const controller = {
       .then((data) => {
         const dataPokemon = {
           Pokemon: data.name,
-          Peso: data.weight,
-          Altura: data.height,
+          Peso: data.weight / 10,
+          Altura: data.height * 10,
           Tipo: data.types[0].type.name,
-          Imagen: `<img src="${data.sprites.front_default}" alt="Imagen de ${data.name} >`,
+          Imagen: data.sprites.front_default,
         };
-
+        console.log(dataPokemon);
         return res.render("pokemon", { dataPokemon });
       })
       .catch((error) => {

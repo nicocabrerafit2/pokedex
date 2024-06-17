@@ -4,14 +4,23 @@
 <head>
   <%- include("./partials/head.ejs") %>
     <title>
-      <%= dataPokemon.pokemon %>
+      <%= dataPokemon.Pokemon %>
     </title>
 </head>
 
 <body>
-  <h1>Hola mi nombre es <%= dataPokemon.pokemon %>
+  <h1>
+    ¡Increíble! Basado en tu nombre, ¡te pareces a un <%= dataPokemon.Pokemon %>!
   </h1>
-  <h1></h1>
+  <img src="<%= dataPokemon.Imagen %>">
+  <h1>Tu peso estimado sería de **<%= (dataPokemon.Peso/dataPokemon.Altura).toFixed(2)%>kg** por cada centímetro de
+      altura que tengas.
+  </h1>
+  <h1>Eres del tipo **<%= dataPokemon.Tipo%>**, ¡justo como <%= dataPokemon.Pokemon%> en el mundo Pokémon!
+  </h1>
+  <br>
+
+  <button onclick="window.location.href='/';">Volver a buscar</button>
 
 </body>
 

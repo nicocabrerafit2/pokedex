@@ -11,11 +11,6 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
 //Requiero las rutas
 app.use(express.urlencoded());
-import userRoutes from "./routes/userRoutes.js";
-
-import mainRoutes from "./routes/mainRoutes.js";
-
-import pomekonRoutes from "./routes/pomekonRoutes.js";
 
 import apiRoutes from "./routes/api/apiRoutes.js";
 //Configuro el view engine
