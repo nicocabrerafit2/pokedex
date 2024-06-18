@@ -10,7 +10,12 @@
   <h1>PokeAstro</h1>
   <form action="/api" method="post">
     <div>
-      <input type="text" name="name">
+      <label for="nameClient">Nombre</label>
+      <input type="text" name="name" id="nameClient">
+    </div>
+    <div>
+      <label for="signClient">Signo</label>
+      <input type="text" name="sign" id="signClient">
     </div>
     <button type="submit">Buscar</button>
   </form>
