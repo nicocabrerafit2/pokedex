@@ -5,7 +5,7 @@ const controller = {
     res.render("home");
   },
   getPokemon: (req, res) => {
-    fetch("https://json.freeastrologyapi.com/", {
+    /*fetch("https://json.freeastrologyapi.com/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -16,9 +16,9 @@ const controller = {
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
 
-    /*
+    */
 
-    const search = req.body.name;
+    const search = req.query.name;
 
     fetch("https://pokeapi.co/api/v2/pokemon/" + search)
       .then((response) => response.json())
@@ -37,7 +37,6 @@ const controller = {
         console.error("Error:", error);
         res.status(500).send(error);
       });
-  */
   },
 };
 
