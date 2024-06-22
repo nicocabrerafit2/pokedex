@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("./partials/head.ejs") %>
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Soy el home</h1>
-    <img src="/images/IMG_20191023_161133072.jpg" />
-  </body>
+
+<head>
+  <%- include("./partials/head.ejs") %>
+</head>
+
+<body>
+  <h1>PokeAstro</h1>
+
+  <form action="/api" method="post">
+    <div>
+      <label for="nameClient">Nombre</label>
+      <input type="text" name="name" id="nameClient">
+    </div>
+    <div>
+      <label for="signClient">Signo</label>
+      <input type="text" name="sign" id="signClient">
+    </div>
+    <button type="submit">Buscar</button>
+  </form>
+
+</body>
+
 </html>

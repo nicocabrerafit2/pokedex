@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Es un buscador de pokemones, realizado con node.js",
   "main": "./src/app.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon app.js"
   },
@@ -15,6 +16,7 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "express-router": "^0.0.1"
+    "express-router": "^0.0.1",
+    "node-fetch": "^3.3.2"
   }
 }
