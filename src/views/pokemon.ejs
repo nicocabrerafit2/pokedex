@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
 
-<head>
-  <%- include("./partials/head.ejs") %>
-</head>
+  <body>
+    <h1>¡Increíble! es un <%= dataPokemon.Pokemon %>!</h1>
+    <img src="<%= dataPokemon.Imagen %>" />
+    <h1>
+      Su peso estimado sería de **<%=
+      (dataPokemon.Peso/dataPokemon.Altura).toFixed(2)%>kg** por cada centímetro
+      de altura que tenga. Suelen tener **<%= (dataPokemon.Altura)%>cm** de
+      alto!
+    </h1>
+    <h1>
+      Es del tipo **<%= dataPokemon.Tipo%>**, ¡Este <%= dataPokemon.Pokemon%>
+      sería una gran opción de mascota en el mundo Pokémon!
+    </h1>
+    <br />
 
-<body>
-  <h1>
-    ¡Increíble! Basado en tu nombre, ¡te pareces a un <%= dataPokemon.Pokemon %>!
-  </h1>
-  <img src="<%= dataPokemon.Imagen %>">
-  <h1>Tu peso estimado sería de **<%= (dataPokemon.Peso/dataPokemon.Altura).toFixed(2)%>kg** por cada centímetro de
-      altura que tengas.
-  </h1>
-  <h1>Eres del tipo **<%= dataPokemon.Tipo%>**, ¡justo como <%= dataPokemon.Pokemon%> en el mundo Pokémon!
-  </h1>
-  <br>
-
-  <button onclick="window.location.href='/';">Volver a buscar</button>
-
-</body>
-
+    <button onclick="window.location.href='/';">Volver a buscar</button>
+  </body>
 </html>

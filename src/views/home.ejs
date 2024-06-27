@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+
+  <body>
+    <h1>PokeAstro</h1>
+
+    <form action="/api" method="get">
+      <div>
+        <label for="nameClient">Nombre</label>
+        <input type="text" name="name" id="nameClient" />
+      </div>
+      <div>
+        <label for="signClient">Tipo de pokemon</label>
+
+        <select name="sign" id="signClient">
+          <option value="Normal">Fuego</option>
+          <option value="Fire">Feo</option>
+          <option value="Fighting">Muy bueno</option>
+          <option value="Bug">Muy bueno</option>
+          <option value="Dragon">Muy bueno</option>
+          <option value="Ghost">Muy bueno</option>
+          <option value="Ice">Muy bueno</option>
+          <option value="Ground">Muy bueno</option>
+          <option value="Rock">Muy bueno</option>
+          <option value="Psychic">Muy bueno</option>
+          <option value="Electric">Muy bueno</option>
+          <option value="Poison">Muy bueno</option>
+          <option value="Fighting">Muy bueno</option>
+          <option value="Flying">Muy bueno</option>
+          <option value="Grass">Muy bueno</option>
+          <option value="Water">Muy bueno</option>
+          <option value="Dark">Muy bueno</option>
+          <option value="Steel">Muy bueno</option>
+          <option value="Fairy">Muy bueno</option>
+        </select>
+      </div>
+      <button type="submit">Buscar</button>
+    </form>
+  </body>
+</html>
