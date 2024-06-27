@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+
+  <body>
+    <h1>
+      Estos son todos los pokemones que existen, para mas informacion seleciona
+      uno de ellos:
+    </h1>
+
+    <% for(let i =0; i < arrayResult.length; i++) { %>
+
+    <a href=./api?name=<%= arrayResult[i].name %>><%= arrayResult[i].name %><a >
+    <p>
+      <%}%>
+      <br />
+      <button onclick="window.location.href='/';">Volver a buscar</button>
+    </p>
+  </body>
+</html>

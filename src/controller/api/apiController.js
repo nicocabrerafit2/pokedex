@@ -16,6 +16,7 @@ const controller = {
           "x-api-key": "6gRIA9kmx49wQievzg4sF5KmcyLT0LEF8E73N2cQ",
         },
       });
+
       const pokemon = await result.json();
 
       const dataPokemon = {
@@ -25,7 +26,28 @@ const controller = {
         Tipo: pokemon.types[0].type.name,
         Imagen: pokemon.sprites.front_default,
       };
+
       return res.render("pokemon", { dataPokemon });
+    } catch (error) {
+      console.error("Se produjo el siguiente error:", error);
+      res.status(500).send(error);
+    }
+  },
+  getAllPokemon: async (req, res) => {
+    try {
+      const url = `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`;
+
+      const result = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "6gRIA9kmx49wQievzg4sF5KmcyLT0LEF8E73N2cQ",
+        },
+      });
+
+      const allPokemon = await result.json();
+      const arrayResult = allPokemon.results;
+      return res.render("listPokemon", { arrayResult });
     } catch (error) {
       console.error("Se produjo el siguiente error:", error);
       res.status(500).send(error);
