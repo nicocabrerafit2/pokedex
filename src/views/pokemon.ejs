@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("./partials/head.ejs") %>
-  </head>
 
-  <body>
-    <h1>¡Increíble! es un <%= dataPokemon.Pokemon %>!</h1>
-    <img src="<%= dataPokemon.Imagen %>" />
-    <h1>
-      Su peso estimado sería de **<%=
-      (dataPokemon.Peso/dataPokemon.Altura).toFixed(2)%>kg** por cada centímetro
+<head>
+  <%- include("./partials/head.ejs") %>
+</head>
+
+<body>
+  <h1>¡Increíble! es un <%= dataPokemon.Pokemon %>!</h1>
+  <img src="<%= dataPokemon.Imagen %>" />
+  <h1>
+    Su peso estimado sería de **<%= (dataPokemon.Peso/dataPokemon.Altura).toFixed(2)%>kg** por cada centímetro
       de altura que tenga. Suelen tener **<%= (dataPokemon.Altura)%>cm** de
-      alto!
-    </h1>
-    <h1>
-      Es del tipo **<%= dataPokemon.Tipo%>**, ¡Este <%= dataPokemon.Pokemon%>
-      sería una gran opción de mascota en el mundo Pokémon!
-    </h1>
-    <br />
+        alto!
+  </h1>
+  <h1>
+    Es del tipo **<%= dataPokemon.Tipo%>**, ¡Este <%= dataPokemon.Pokemon%>
+        sería una gran opción de mascota en el mundo Pokémon!
+  </h1>
+  <br />
 
-    <button onclick="window.location.href='/';">Volver a buscar</button>
-  </body>
+  <script>
+    var url = '<%= fromList ? "/apiAllPokemon?limit=" + limit + "&offset=" + offset : "/?name=" + search %>';
+  </script>
+
+  <button onclick="window.location.href=url;">Volver</button>
+
+</body>
+
 </html>

@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("./partials/head.ejs") %>
-  </head>
 
-  <body>
-    <h1>PokeAstro</h1>
+<head>
+  <%- include("./partials/head.ejs") %>
+</head>
 
-    <form action="/api" method="get">
-      <div>
-        <label for="nameClient">Nombre</label>
-        <input type="text" name="name" id="nameClient" />
-      </div>
-      <div>
-        <label for="signClient">Tipo de pokemon</label>
-        <link a="" />
-      </div>
-      <button type="submit">Buscar</button>
-    </form>
-    <form action="/apiAllPokemon" method="get">
-      <br />
-      <button type="submit">Buscar todos los pokemones</button>
-    </form>
-  </body>
+<body>
+  <h1>PokeAstro</h1>
+
+  <form action="/api" method="get">
+    <div>
+      <label for="nameClient">Nombre</label>
+      <input type="text" name="name" id="nameClient" />
+    </div>
+    <button type="submit">Buscar</button>
+  </form>
+  <form action="/apiAllPokemon" method="get">
+    <br />
+    <button type="submit">Buscar todos los pokemones</button>
+  </form>
+</body>
+
 </html>
