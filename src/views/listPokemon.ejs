@@ -6,27 +6,25 @@
 </head>
 
 <body>
-  <h1>
-    Estos son todos los pokemones que existen, para mas informacion seleciona
-    uno de ellos:
-  </h1>
+  <div class="container">
+    <h1>Elige uno para conocer más detalles</h1>
 
-  <% for(let i=0; i < arrayResult.length; i++) { %>
-    <a href="./api?name=<%=arrayResult[i].name %>&fromList=true&limit=<%= limit %>&offset=<%= offset %>">
-      <%= arrayResult[i].name %>
-    </a>
-    <br><br>
-    <% } %>
+    <div class="pokemon-list">
+      <% for(let i=0; i < arrayResult.length; i++) { %>
+        <a href="./api?name=<%=arrayResult[i].name %>&fromList=true&limit=<%= limit %>&offset=<%= offset %>">
+          <%= arrayResult[i].name %>
+        </a>
+        <% } %>
+    </div>
 
-      <br>
-      <button onclick="window.location.href='/';">Volver a buscar</button>
-      <br><br>
-      <button
-        onclick="window.location.href='/apiAllPokemon?limit=<%= limit %>&offset=<%= offset + limit %>';">Siguiente</button>
-      <br><br>
+    <button onclick="window.location.href='/';">Volver a buscar</button>
+    <button
+      onclick="window.location.href='/apiAllPokemon?limit=<%= limit %>&offset=<%= offset + limit %>';">Siguiente</button>
+    <% if (offset> 0) { %>
       <button
         onclick="window.location.href='/apiAllPokemon?limit=<%= limit %>&offset=<%= Math.max(0, offset - limit) %>';">Previo</button>
-      <br><br>
+      <% } %>
+  </div>
 </body>
 
 </html>

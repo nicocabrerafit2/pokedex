@@ -1,0 +1,67 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+/* Container Styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pokemon List Styles */
+.pokemon-list {
+  max-height: calc(100vh - 200px); /* Ajusta este valor según sea necesario */
+  overflow-y: auto;
+}
+
+.pokemon-list a {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #e0e0e0;
+  text-decoration: none;
+  color: #333;
+  border-radius: 5px;
+}
+
+.pokemon-list a:hover {
+  background-color: #d0d0d0;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Form Styles */
+form {
+  margin-bottom: 20px;
+}
+/* Pokemon Styles */
+.answer {
+  color: #e74c3c;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #bdc3c7;
+    font-style: italic;
+}

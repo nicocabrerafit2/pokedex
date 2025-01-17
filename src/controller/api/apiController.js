@@ -44,7 +44,7 @@ const controller = {
   },
   getAllPokemon: async (req, res) => {
     try {
-      const limit = parseInt(req.query.limit) || 10;
+      const limit = parseInt(req.query.limit) || 5;
       const offset = parseInt(req.query.offset) || 0;
       const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 
