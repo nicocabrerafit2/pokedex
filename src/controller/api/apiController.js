@@ -7,9 +7,6 @@ const controller = {
   getPokemon: async (req, res) => {
     try {
       const search = req.query.name;
-      const fromList = req.query.fromList === "true";
-      const limit = req.query.limit || 10;
-      const offset = req.query.offset || 0;
       const url = `https://pokeapi.co/api/v2/pokemon/${search}`;
 
       const result = await fetch(url, {
@@ -32,10 +29,6 @@ const controller = {
 
       return res.render("pokemon", {
         dataPokemon,
-        fromList,
-        search,
-        limit,
-        offset,
       });
     } catch (error) {
       console.error("Se produjo el siguiente error:", error);
@@ -44,7 +37,7 @@ const controller = {
   },
   getAllPokemon: async (req, res) => {
     try {
-      const limit = parseInt(req.query.limit) || 5;
+      const limit = 9999;
       const offset = parseInt(req.query.offset) || 0;
       const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 
@@ -59,10 +52,46 @@ const controller = {
       const allPokemon = await result.json();
       const arrayResult = allPokemon.results;
 
-      return res.render("listPokemon", { arrayResult, limit, offset });
+      return res.render("listPokemon", { arrayResult });
     } catch (error) {
       console.error("Se produjo el siguiente error:", error);
       res.status(500).send(error);
+    }
+  },
+  searchOnePokemon: async (req, res) => {
+    try {
+      const limitSearch = 9999;
+      const offsetSearch = 0;
+      const url = `https://pokeapi.co/api/v2/pokemon?limit=${limitSearch}&offset=${offsetSearch}`;
+      const result = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "6gRIA9kmx49wQievzg4sF5KmcyLT0LEF8E73N2cQ",
+        },
+      });
+      const allPokemon = await result.json();
+      const arrayResultSearch = allPokemon.results;
+      const searchTerm = req.query.searchTerm;
+
+      let arrayResult;
+
+      if (!searchTerm || searchTerm.trim() === "") {
+        // Si el término de búsqueda está vacío, devolver todos los Pokémon
+        arrayResult = arrayResultSearch;
+      } else {
+        const searchByPartialName = (array, searchTerm) => {
+          return array.filter((pokemon) =>
+            pokemon.name.toLowerCase().startsWith(searchTerm.toLowerCase())
+          );
+        };
+        arrayResult = searchByPartialName(arrayResultSearch, searchTerm);
+      }
+
+      return res.render("listPokemon", { arrayResult });
+    } catch (error) {
+      console.error("Se produjo el siguiente error:", error.message);
+      return res.status(500).send("Se produjo un error interno del servidor.");
     }
   },
 };

@@ -3,21 +3,22 @@
 
 <head>
   <%- include("./partials/head.ejs") %>
+    <link rel="stylesheet" href="/path/to/your/css/style.css">
 </head>
 
-<body>
+<body class="background">
   <div class="container">
-    <h1>PokeAstro</h1>
+    <h1 class="title">PokeAstro</h1>
 
-    <form action="/api" method="get">
-      <div>
-        <label for="nameClient">Nombre</label>
-        <input type="text" name="name" id="nameClient" />
+    <form action="/api" method="get" class="form">
+      <div class="form-group">
+        <label for="searchTerm">Nombre</label>
+        <input type="text" name="searchTerm" id="searchTerm" />
       </div>
-      <button type="submit">Buscar</button>
+      <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
-    <form action="/apiAllPokemon" method="get">
-      <button type="submit">Buscar todos los pokemones</button>
+    <form action="/apiAllPokemon" method="get" class="form">
+      <button type="submit" class="btn btn-secondary">Listar todos los pokemones</button>
     </form>
   </div>
 </body>

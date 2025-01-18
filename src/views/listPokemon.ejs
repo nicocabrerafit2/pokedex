@@ -5,25 +5,19 @@
   <%- include("./partials/head.ejs") %>
 </head>
 
-<body>
+<body class="background">
   <div class="container">
-    <h1>Elige uno para conocer más detalles</h1>
+    <h1 class="title">Elige uno para conocer más detalles</h1>
 
     <div class="pokemon-list">
       <% for(let i=0; i < arrayResult.length; i++) { %>
-        <a href="./api?name=<%=arrayResult[i].name %>&fromList=true&limit=<%= limit %>&offset=<%= offset %>">
+        <a href="./getPokemon?name=<%=arrayResult[i].name %>">
           <%= arrayResult[i].name %>
         </a>
         <% } %>
     </div>
 
-    <button onclick="window.location.href='/';">Volver a buscar</button>
-    <button
-      onclick="window.location.href='/apiAllPokemon?limit=<%= limit %>&offset=<%= offset + limit %>';">Siguiente</button>
-    <% if (offset> 0) { %>
-      <button
-        onclick="window.location.href='/apiAllPokemon?limit=<%= limit %>&offset=<%= Math.max(0, offset - limit) %>';">Previo</button>
-      <% } %>
+    <button onclick="window.location.href='/';" class="btn btn-primary">Volver al inicio</button>
   </div>
 </body>
 

@@ -5,34 +5,25 @@
   <%- include("./partials/head.ejs") %>
 </head>
 
-<body>
+<body class="background">
   <div class="container">
-    <h1>¡Increíble! es un <span class="answer">
+    <h1 class="title">¡Increíble! es un <span class="answer">
         <%= dataPokemon.Pokemon %>
-      </span>!
-    </h1>
-    <img src="<%= dataPokemon.Imagen %>" />
-    <h1>
-      Su peso estimado es de <span class="answer">
-        <%= dataPokemon.Peso.toFixed(2)%>
+      </span>!</h1>
+    <img src="<%= dataPokemon.Imagen %>" alt="Imagen de <%= dataPokemon.Pokemon %>" />
+    <h1>Su peso estimado es de <span class="answer">
+        <%= dataPokemon.Peso.toFixed(2) %>
       </span>kg y suelen tener <span class="answer">
-        <%= (dataPokemon.Altura)%>
-      </span>cm de alto!
-    </h1>
-    <h1>
-      Es del tipo <span class="answer">
-        <%= dataPokemon.Tipo%>
-      </span>
-    </h1>
-    <h1>
-      ¡Este <span class="answer">
-        <%= dataPokemon.Pokemon%>
-      </span> sería una gran opción de mascota en el mundo Pokémon!
-    </h1>
-    <br />
+        <%= dataPokemon.Altura %>
+      </span>cm de alto!</h1>
+    <h1>Es del tipo <span class="answer">
+        <%= dataPokemon.Tipo %>
+      </span></h1>
+    <h1>¡Este <span class="answer">
+        <%= dataPokemon.Pokemon %>
+      </span> sería una gran opción de mascota en el mundo Pokémon!</h1>
 
-    <button
-      onclick="window.location.href='<%= fromList ? `/apiAllPokemon?limit=${limit}&offset=${offset}` : `/?name=${search}` %>';">Volver</button>
+    <button onclick="window.history.back();" class="btn btn-primary">Volver</button>
   </div>
 </body>
 
