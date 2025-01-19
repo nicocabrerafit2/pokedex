@@ -1,24 +1,19 @@
 import express from "express";
-const app = express();
-// Especifico el puerto
-const PORT = 3001;
-
 import path from "path";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import dotenv from "dotenv";
+import apiRoutes from "./routes/api/apiRoutes.js";
+import { __dirname } from "./utils/utils.js";
 
-// Correct path to the public directory
-app.use(express.static(path.join(__dirname, "../public")));
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-//Requiero las rutas
+app.use(express.static(path.join(__dirname, "../../public")));
 app.use(express.urlencoded());
 
-import apiRoutes from "./routes/api/apiRoutes.js";
-//Configuro el view engine
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/views"));
-//Configuro las rutas
+app.set("views", path.join(__dirname, "../views"));
+
 app.use("/", apiRoutes);
 
 app.listen(PORT, () => {

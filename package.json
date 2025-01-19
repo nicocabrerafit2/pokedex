@@ -17,6 +17,7 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-router": "^0.0.1",
+    "dotenv": "^16.4.5",
     "node-fetch": "^3.3.2"
   }
 }

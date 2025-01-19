@@ -1,11 +1,14 @@
 import { Router } from "express";
 const router = Router();
 
-import controller from "../../controller/api/apiController.js";
+import apiController from "../../controller/api/apiController.js";
+import viewsController from "../../controller/views/viewsController.js";
 
-router.get("/", controller.home);
-router.get("/getPokemon", controller.getPokemon);
-router.get("/api", controller.searchOnePokemon);
-router.get("/apiAllPokemon", controller.getAllPokemon);
+router.get("/", viewsController.home);
+router.get("/pokemonDetail", viewsController.pokemonDetail);
+
+router.get("/getPokemon", apiController.getPokemon);
+router.get("/api", apiController.searchOnePokemon);
+router.get("/apiAllPokemon", apiController.getAllPokemon);
 
 export default router;
