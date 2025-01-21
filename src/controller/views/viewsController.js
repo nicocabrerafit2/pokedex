@@ -11,7 +11,7 @@ const home = async (req, res) => {
 
 const pokemonDetail = async (req, res) => {
   try {
-    const result = await pokemonService.getPokemon();
+    const result = await pokemonService.getOnePokemon();
     res.status(200).render("pokemonDetail", result);
   } catch (error) {
     console.error("Error fetching Pokémon details:", error);

@@ -7,7 +7,7 @@ import viewsController from "../../controller/views/viewsController.js";
 router.get("/", viewsController.home);
 router.get("/pokemonDetail", viewsController.pokemonDetail);
 
-router.get("/getPokemon", apiController.getPokemon);
+router.get("/getOnePokemon", apiController.getOnePokemon);
 router.get("/api", apiController.searchOnePokemon);
 router.get("/apiAllPokemon", apiController.getAllPokemon);
 
