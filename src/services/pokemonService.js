@@ -1,8 +1,7 @@
 import fetch from "node-fetch";
 
-const getOnePokemon = async (req, res) => {
+const getOnePokemon = async (search) => {
   try {
-    const search = req.query.name;
     const url = `https://pokeapi.co/api/v2/pokemon/${search}`;
 
     const result = await fetch(url, {
@@ -14,16 +13,16 @@ const getOnePokemon = async (req, res) => {
     });
 
     const pokemon = await result.json();
-    res.send(pokemon);
+    return pokemon;
   } catch (error) {
     console.error("Se produjo el siguiente error:", error);
-    res.send(error);
+    return new Error("Se produjo un error interno del servidor.");
   }
 };
-const getAllPokemon = async (req, res) => {
+const getAllPokemon = async () => {
   try {
     const limit = 9999;
-    const offset = parseInt(req.query.offset) || 0;
+    const offset = 0;
     const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 
     const result = await fetch(url, {
@@ -35,17 +34,17 @@ const getAllPokemon = async (req, res) => {
     });
 
     const allPokemon = await result.json();
-    res.send(allPokemon.results);
+
+    return allPokemon.results;
   } catch (error) {
     console.error("Se produjo el siguiente error:", error);
-    res.status(500).send(error);
+    return new Error("Se produjo un error interno del servidor.");
   }
 };
-const searchOnePokemon = async (req, res) => {
+const searchOnePokemon = async (searchTerm) => {
   try {
-    const allPokemon = getAllPokemon();
-
-    const searchTerm = req.query.searchTerm;
+    const allPokemon = await getAllPokemon();
+    console.log("termino de busqueda", searchTerm);
 
     let arrayResult;
 
@@ -59,10 +58,10 @@ const searchOnePokemon = async (req, res) => {
       };
       arrayResult = searchByPartialName(allPokemon, searchTerm);
     }
-    res, send(arrayResult);
+    return arrayResult;
   } catch (error) {
-    console.error("Se produjo el siguiente error:", error.message);
-    return res.status(500).send("Se produjo un error interno del servidor.");
+    console.error("Se produjo el siguiente error:", error);
+    return new Error("Se produjo un error interno del servidor.");
   }
 };
 

@@ -2,7 +2,8 @@ import pokemonService from "../../services/pokemonService.js";
 
 const getOnePokemon = async (req, res) => {
   try {
-    const result = await pokemonService.getOnePokemon();
+    const search = req.query.name;
+    const result = await pokemonService.getOnePokemon(search);
     res.status(200).json({ status: "success", payload: result });
   } catch (error) {
     console.error("Error fetching Pokémon details:", error);
@@ -20,7 +21,8 @@ const getAllPokemon = async (req, res) => {
 };
 const searchOnePokemon = async (req, res) => {
   try {
-    const result = await pokemonService.searchOnePokemon();
+    const searchTerm = req.query.searchTerm;
+    const result = await pokemonService.searchOnePokemon(searchTerm);
     res.status(200).json({ status: "success", payload: result });
   } catch (error) {
     console.error("Error fetching searchOnePokemon:", error);
