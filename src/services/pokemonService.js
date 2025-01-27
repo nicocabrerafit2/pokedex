@@ -44,20 +44,20 @@ const getAllPokemon = async () => {
 const searchOnePokemon = async (searchTerm) => {
   try {
     const allPokemon = await getAllPokemon();
-    console.log("termino de busqueda", searchTerm);
+    console.log(
+      "termino de busqueda, aca en service getAllPokemon",
+      searchTerm
+    );
 
     let arrayResult;
+    const searchByPartialName = (allPokemon, searchTerm) => {
+      return allPokemon.filter((pokemon) =>
+        pokemon.name.toLowerCase().startsWith(searchTerm.toLowerCase())
+      );
+    };
+    arrayResult = searchByPartialName(allPokemon, searchTerm);
+    console.log("aca se tiene que mostrar los pkomen filtrados", arrayResult);
 
-    if (!searchTerm || searchTerm.trim() === "") {
-      arrayResult = allPokemon;
-    } else {
-      const searchByPartialName = (allPokemon, searchTerm) => {
-        return allPokemon.filter((pokemon) =>
-          pokemon.name.toLowerCase().startsWith(searchTerm.toLowerCase())
-        );
-      };
-      arrayResult = searchByPartialName(allPokemon, searchTerm);
-    }
     return arrayResult;
   } catch (error) {
     console.error("Se produjo el siguiente error:", error);

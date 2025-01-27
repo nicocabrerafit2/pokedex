@@ -10,15 +10,13 @@
     <h1 class="title">Elige uno para conocer más detalles</h1>
 
     <div class="pokemon-list">
-      <% for(let i=0; i < arrayResult.length; i++) { %>
-        <a href="./getPokemon?name=<%=arrayResult[i].name %>">
-          <%= arrayResult[i].name %>
-        </a>
-        <% } %>
+      <!-- Aquí se insertará el HTML generado -->
     </div>
-
+    <div id="results"></div>
     <button onclick="window.location.href='/';" class="btn btn-primary">Volver al inicio</button>
   </div>
+
+  <script src="./js/listPokemon.js"></script> <!-- Añadimos la ruta al script -->
 </body>
 
 </html>
