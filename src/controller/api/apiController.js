@@ -4,6 +4,7 @@ const getOnePokemon = async (req, res) => {
   try {
     const search = req.query.name;
     const result = await pokemonService.getOnePokemon(search);
+    res.red;
     res.status(200).json({ status: "success", payload: result });
   } catch (error) {
     console.error("Error fetching Pokémon details:", error);

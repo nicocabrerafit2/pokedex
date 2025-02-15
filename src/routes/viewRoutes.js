@@ -5,7 +5,10 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 router.get("/detail", (req, res) => {
-  res.render("pokemon");
+  const dataPokemon = req.data;
+  console.log(dataPokemon);
+
+  res.render("pokemon", { dataPokemon });
 });
 router.get("/listPokemon", (req, res) => {
   res.render("listPokemon");

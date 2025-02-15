@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const pokemonListHTML = data.payload
           .map(
             (pokemon) =>
-              `<a href="./api/getOnePokemon?name=${pokemon.name}">${pokemon.name}</a>`
+              `<form class="pokemon-form" data-name="${pokemon.name}">
+                 <button type="submit" class="btn btn-secondary">${pokemon.name}</button>
+              </form>`
           )
           .join("");
 
@@ -53,7 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const pokemonListHTML = data.payload
           .map(
             (pokemon) =>
-              `<a href="./api/getOnePokemon?name=${pokemon.name}">${pokemon.name}</a>`
+              `<form class="pokemon-form" data-name="${pokemon.name}">
+                 <button type="submit" class="btn btn-secondary">${pokemon.name}</button>
+              </form>`
           )
           .join("");
 
@@ -63,4 +67,16 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error al llamar a la API alternativa:", error);
       });
   }
+  document.addEventListener("submit", function (event) {
+    if (event.target.classList.contains("pokemon-form")) {
+      event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+
+      const pokemonName = event.target.getAttribute("data-name");
+
+      // Redirigir a la nueva vista con el nombre del Pokémon en la URL
+      const url = new URL(window.location.origin + "/detail");
+      url.searchParams.append("name", pokemonName);
+      window.location.href = url;
+    }
+  });
 });
