@@ -7,16 +7,17 @@
 
 <body class="background">
   <div class="container">
-    <h1 class="title">¡Increíble! es un <span class="answer"></span>!</h1>
-    <img src="" alt="Imagen de Pokémon" />
-    <h1>Su peso estimado es de <span class="answer"></span>kg y suelen tener <span class="answer"></span>cm de alto!
+    <h1 class="title">¡Increíble! es un <span class="answer pokemon-name"></span>!</h1>
+    <img src="" alt="" />
+    <h1>Su peso estimado es de <span class="answer pokemon-weight"></span> kg y suelen tener <span
+        class="answer pokemon-height"></span> cm de alto!
     </h1>
-    <h1>Es del tipo <span class="answer"></span></h1>
-    <h1>¡Este <span class="answer"></span> sería una gran opción de mascota en el mundo Pokémon!</h1>
+    <h1>Es del tipo <span class="answer pokemon-type"></span></h1>
+    <h1>¡Este <span class="answer pokemon-name"></span> sería una gran opción de mascota en el mundo Pokémon!</h1>
     <button onclick="window.history.back();" class="btn btn-primary">Volver</button>
   </div>
-  <script src="../src/DTO/dataPokemonDTO.js"></script> <!-- Añadir el DTO antes de detailPokemon.js -->
-  <script src="./js/detailPokemon.js"></script> <!-- Añadimos la ruta al script -->
+  <script src="/js/dataPokemonDTO.js"></script> <!-- Asegúrate de que la ruta sea correcta -->
+  <script src="/js/detailPokemon.js"></script> <!-- Asegúrate de que la ruta sea correcta -->
 </body>
 
 </html>

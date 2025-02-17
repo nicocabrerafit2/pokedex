@@ -44,10 +44,6 @@ const getAllPokemon = async () => {
 const searchOnePokemon = async (searchTerm) => {
   try {
     const allPokemon = await getAllPokemon();
-    console.log(
-      "termino de busqueda, aca en service getAllPokemon",
-      searchTerm
-    );
 
     let arrayResult;
     const searchByPartialName = (allPokemon, searchTerm) => {
@@ -56,7 +52,6 @@ const searchOnePokemon = async (searchTerm) => {
       );
     };
     arrayResult = searchByPartialName(allPokemon, searchTerm);
-    console.log("aca se tiene que mostrar los pkomen filtrados", arrayResult);
 
     return arrayResult;
   } catch (error) {
