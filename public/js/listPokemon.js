@@ -4,24 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Obtener el término de búsqueda de la URL
   const urlParams = new URLSearchParams(window.location.search);
   const searchTerm = urlParams.get("searchTerm");
-  
 
   if (searchTerm) {
-    // Si hay un término de búsqueda, haz una solicitud fetch a la API
-   
-
     fetch(`/api/searchOnePokemon?searchTerm=${searchTerm}`)
       .then((response) => {
-        console.log("Respuesta de la API de búsqueda recibida:", response);
         return response.json();
       })
       .then((data) => {
-        // Maneja la respuesta aquí
-        console.log("Datos recibidos de la API:", data);
-
         const pokemonListContainer = document.querySelector(".pokemon-list");
-        pokemonListContainer.innerHTML = ""; // Limpiar la lista actual
-
         const pokemonListHTML = data.payload
           .map(
             (pokemon) =>
@@ -29,26 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
                  <button type="submit" class="btn btn-secondary">${pokemon.name}</button>
               </form>`
           )
-          .join("");
-
+          .join(" ");
         pokemonListContainer.innerHTML = pokemonListHTML;
       })
       .catch((error) => {
         console.error("Error al llamar a la API:", error);
       });
   } else {
-   
-
     fetch(`/api/AllPokemon`)
       .then((response) => {
-       
         return response.json();
       })
       .then((data) => {
-       
         const pokemonListContainer = document.querySelector(".pokemon-list");
-        pokemonListContainer.innerHTML = ""; // Limpiar la lista actual
-
         const pokemonListHTML = data.payload
           .map(
             (pokemon) =>
@@ -56,8 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  <button type="submit" class="btn btn-secondary">${pokemon.name}</button>
               </form>`
           )
-          .join("");
-
+          .join(" ");
         pokemonListContainer.innerHTML = pokemonListHTML;
       })
       .catch((error) => {

@@ -19,7 +19,7 @@ const getOnePokemon = async (search) => {
     return new Error("Se produjo un error interno del servidor.");
   }
 };
-const getAllPokemon = async () => {
+const getAllPokemon = async (searchTerm) => {
   try {
     const limit = 9999;
     const offset = 0;
@@ -34,28 +34,15 @@ const getAllPokemon = async () => {
     });
 
     const allPokemon = await result.json();
-
-    return allPokemon.results;
-  } catch (error) {
-    console.error("Se produjo el siguiente error:", error);
-    return new Error("Se produjo un error interno del servidor.");
-  }
-};
-const searchOnePokemon = async (searchTerm) => {
-  try {
-    const allPokemon = await getAllPokemon();
-
-    let arrayResult;
-    const searchByPartialName = (allPokemon, searchTerm) => {
-      return allPokemon.filter((pokemon) =>
+    if (searchTerm) {
+      const result = allPokemon.results.filter((pokemon) =>
         pokemon.name.toLowerCase().startsWith(searchTerm.toLowerCase())
       );
-    };
-    arrayResult = searchByPartialName(allPokemon, searchTerm);
-
-    return arrayResult;
+      return result;
+    } else {
+      return allPokemon.results;
+    }
   } catch (error) {
-    console.error("Se produjo el siguiente error:", error);
     return new Error("Se produjo un error interno del servidor.");
   }
 };
