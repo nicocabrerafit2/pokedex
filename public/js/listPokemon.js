@@ -5,34 +5,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const searchTerm = urlParams.get("searchTerm");
 
-  if (searchTerm) {
-    fetch(`/api/searchOnePokemon?searchTerm=${searchTerm}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const pokemonListContainer = document.querySelector(".pokemon-list");
-        const pokemonListHTML = data.payload
-          .map(
-            (pokemon) =>
-              `<form class="pokemon-form" data-name="${pokemon.name}">
-                 <button type="submit" class="btn btn-secondary">${pokemon.name}</button>
-              </form>`
-          )
-          .join(" ");
-        pokemonListContainer.innerHTML = pokemonListHTML;
-      })
-      .catch((error) => {
-        console.error("Error al llamar a la API:", error);
-      });
-  } else {
+  
     fetch(`/api/AllPokemon`)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         const pokemonListContainer = document.querySelector(".pokemon-list");
-        const pokemonListHTML = data.payload
+        const pokemonListHTML = data.payload;
+
+        const resultFilter = searchTerm
+          ? pokemonListHTML.filter(pokemon =>
+              pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+          : pokemonListHTML;
+        
+        const filteredHTML = resultFilter
           .map(
             (pokemon) =>
               `<form class="pokemon-form" data-name="${pokemon.name}">
@@ -40,12 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
               </form>`
           )
           .join(" ");
-        pokemonListContainer.innerHTML = pokemonListHTML;
+        
+        pokemonListContainer.innerHTML = filteredHTML;
+        
+      
+       
       })
       .catch((error) => {
         console.error("Error al llamar a la API alternativa:", error);
       });
-  }
+  
   document.addEventListener("submit", function (event) {
     if (event.target.classList.contains("pokemon-form")) {
       event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario

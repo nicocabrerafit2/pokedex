@@ -50,5 +50,4 @@ const getAllPokemon = async (searchTerm) => {
 export default {
   getOnePokemon,
   getAllPokemon,
-  searchOnePokemon,
 };
