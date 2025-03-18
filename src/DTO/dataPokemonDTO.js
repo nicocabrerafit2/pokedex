@@ -1,4 +1,3 @@
-// dataPokemonDTO.js
 class DataPokemonDTO {
   static dataPokemon(pokemon) {
     return {
@@ -11,5 +10,4 @@ class DataPokemonDTO {
   }
 }
 
-// Exportar el DTO como un objeto global
 window.DataPokemonDTO = DataPokemonDTO;

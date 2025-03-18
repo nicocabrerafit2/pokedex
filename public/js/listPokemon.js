@@ -1,19 +1,17 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   console.log("Script cargado y DOMContentLoaded");
 
-  // Obtener el término de búsqueda de la URL
   const urlParams = new URLSearchParams(window.location.search);
   const searchTerm = urlParams.get("searchTerm");
+  try {
+          const response = await fetch(`/api/AllPokemon`);
+          const data = await response.json();
 
-  
-    fetch(`/api/AllPokemon`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const pokemonListContainer = document.querySelector(".pokemon-list");
+          const pokemonListContainer = document.querySelector(".pokemon-list");
         const pokemonListHTML = data.payload;
-
+      
+    
+    
         const resultFilter = searchTerm
           ? pokemonListHTML.filter(pokemon =>
               pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -31,20 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
         
         pokemonListContainer.innerHTML = filteredHTML;
         
-      
-       
-      })
-      .catch((error) => {
+      }
+      catch(error)  {
         console.error("Error al llamar a la API alternativa:", error);
-      });
+      };
   
   document.addEventListener("submit", function (event) {
     if (event.target.classList.contains("pokemon-form")) {
-      event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+      event.preventDefault(); 
 
       const pokemonName = event.target.getAttribute("data-name");
 
-      // Redirigir a la nueva vista con el nombre del Pokémon en la URL
+      
       const url = new URL(window.location.origin + "/detail");
       url.searchParams.append("name", pokemonName);
       window.location.href = url;

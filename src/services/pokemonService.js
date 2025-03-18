@@ -1,4 +1,6 @@
 import fetch from "node-fetch";
+import dotenv from "dotenv";
+dotenv.config();
 
 const getOnePokemon = async (search) => {
   try {
@@ -8,7 +10,7 @@ const getOnePokemon = async (search) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": "6gRIA9kmx49wQievzg4sF5KmcyLT0LEF8E73N2cQ",
+        "x-api-key": process.env.API_KEY,
       },
     });
 
@@ -29,7 +31,7 @@ const getAllPokemon = async (searchTerm) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": "6gRIA9kmx49wQievzg4sF5KmcyLT0LEF8E73N2cQ",
+        "x-api-key": process.env.API_KEY,
       },
     });
 
