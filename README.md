@@ -1,8 +1,48 @@
-# pokedex
+# 🦬 Pokedex
 
-Es un buscador de pokemones, realizado con node.js, tambien utiliza api de pokemones.
-Este proyecto se basa en el siguiente link, para su estilo https://www.pokemon.com/es/pokedex.
+Una aplicación buscadora de pokemones construida con Node.js, Express y ejs, siguiendo el patrón MVC y las mejores prácticas de desarrollo.
 
-Glosario:
-routes: rutas
-router: ruteador
+## 🚀 Características
+
+- Base de datos completa desde PokeApi
+- Listado de pokemones
+- Detalle de cada pokemon
+- Interfaz intuitiva
+- Buscador
+- Diseño responsivo
+
+## 🛠️ Tecnologías Utilizadas
+
+- Express.js
+- Ejs
+- Node-fetch
+
+## 📁 Instalación
+
+1. Clona el repositorio
+
+```bash
+git clone [url-del-repositorio]
+```
+
+2. Instala las dependencias
+
+```bash
+npm install
+```
+
+3. Configura el archivo `.env`
+```env"
+API_KEY=X  # Reemplaza X con tu propia api key
+```
+
+4. Inicia el servidor
+
+```bash
+npm start
+```
+
+
+## 👤 Autor
+
+**Nicolas D. Cabrera**
