@@ -7,22 +7,35 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (pokemonName) {
     try {
       const response = await fetch(`/api/getOnePokemon?name=${pokemonName}`);
+
+      if (!response.ok) {
+        throw new Error(`Error en la respuesta: ${response.status} ${response.statusText}`);
+      }
+
       const data = await response.json();
 
- 
       const pokemonData = window.DataPokemonDTO.dataPokemon(data.payload);
 
-      document.querySelector(".title .pokemon-name").innerText =
-        pokemonData.Pokemon;
-      document.querySelector("img").src = pokemonData.Imagen;
-      document.querySelector("img").alt = `Imagen de ${pokemonData.Pokemon}`;
-      document.querySelector(".pokemon-weight").innerText =
-        pokemonData.Peso.toFixed(2);
-      document.querySelector(".pokemon-height").innerText = pokemonData.Altura;
-      document.querySelector(".pokemon-type").innerText = pokemonData.Tipo;
-      document.querySelector(".pokemon-name").innerText = pokemonData.Pokemon;
+      const pokemonNameElement = document.querySelector(".title .pokemon-name");
+      const pokemonImageElement = document.querySelector("img");
+      const pokemonWeightElement = document.querySelector(".pokemon-weight");
+      const pokemonHeightElement = document.querySelector(".pokemon-height");
+      const pokemonTypeElement = document.querySelector(".pokemon-type");
+
+      pokemonNameElement.innerText = pokemonData.Pokemon;
+      pokemonImageElement.src = pokemonData.Imagen;
+      pokemonImageElement.alt = `Imagen de ${pokemonData.Pokemon}`;
+      pokemonWeightElement.innerText = pokemonData.Peso.toFixed(2);
+      pokemonHeightElement.innerText = pokemonData.Altura;
+      pokemonTypeElement.innerText = pokemonData.Tipo;
     } catch (error) {
       console.error("Error al obtener los detalles del Pokémon:", error);
+
+      const errorMessageElement = document.querySelector(".error-message");
+      if (errorMessageElement) {
+        errorMessageElement.style.display = "block";
+        errorMessageElement.innerText = "Hubo un problema al cargar los detalles del Pokémon.";
+      }
     }
   }
 });
