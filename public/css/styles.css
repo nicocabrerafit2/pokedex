@@ -100,3 +100,29 @@ form,
   font-style: italic;
   font-size: 1.2rem;
 }
+
+/* Este archivo CSS define estilos visuales para una aplicación web centrada en Pokémon:
+1. Estilos generales:
+   a. Se configura el 'body' con una fuente predeterminada (Arial o sans-serif) para mantener una apariencia limpia y accesible.
+   b. El fondo utiliza una imagen fija con 'background-image' y propiedades adicionales ('cover', 'center', 'attachment: fixed') para crear una experiencia visual inmersiva.
+   c. Márgenes y rellenos se eliminan en el 'body' para lograr un diseño más compacto, mientras que la altura asegura que el contenido se ajuste a la ventana del navegador.
+   d. Los encabezados (h1) tienen un color gris (#333) para un contraste claro y elegante.
+
+2. Contenedores:
+   a. '.container' organiza el contenido centrado, con un fondo semitransparente (rgba), bordes redondeados y un ancho máximo, proporcionando una estructura moderna y profesional.
+   b. '.pokemon-image' asegura que las imágenes de los Pokémon se ajusten a proporciones específicas usando 'aspect-ratio' y mantengan un buen encuadre con 'object-fit: cover'.
+
+3. Listas de Pokémon:
+   a. '.pokemon-list' establece un contenedor con altura máxima y desplazamiento vertical ('overflow-y: auto') para manejar listas largas sin saturar la pantalla.
+   b. Los enlaces dentro de la lista tienen bordes redondeados, colores suaves, y un cambio de fondo al pasar el cursor ('hover') para una interacción visual atractiva.
+
+4. Botones:
+   a. Los botones tienen estilos consistentes y se destacan con colores primarios (#007bff) y secundarios (#6c757d), manteniendo bordes redondeados y un efecto de transición al pasar el cursor ('hover').
+   b. 'btn-primary' y 'btn-secondary' se usan para diferenciar acciones principales de las secundarias, mejorando la experiencia del usuario.
+
+5. Formularios:
+   a. Los formularios y sus grupos tienen márgenes para espaciar los elementos y mejorar la disposición del diseño.
+   b. Las clases '.btn-primary' y '.btn-secondary' se aplican para estilizar botones dentro de los formularios.
+
+6. Elementos Pokémon específicos:
+   a. '.answer' resalta propiedades específicas de los Pokémon (peso, altura, tipo) con colores llamativos (#e74c3c), un estilo en cursiva ('italic') y una sombra de texto para enfatizar su importancia dentro del diseño. -->

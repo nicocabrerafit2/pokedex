@@ -53,3 +53,13 @@ export default {
   getOnePokemon,
   getAllPokemon,
 };
+
+// Este archivo implementa dos funciones para interactuar con la API de Pokémon (pokeapi.co):
+// 1. Se importa 'node-fetch' para realizar solicitudes HTTP y 'dotenv' para cargar variables de entorno desde un archivo .env.
+// 2. dotenv.config() asegura que las variables de entorno como API_KEY estén disponibles, proporcionando una forma segura y flexible de manejar configuraciones sensibles.
+// 3. La función 'getOnePokemon' toma un parámetro 'search' (nombre o ID del Pokémon) y realiza una solicitud GET a la API para obtener detalles específicos del Pokémon. Se incluye un encabezado "x-api-key" con la clave de API, que puede ser requerida por el servicio.
+// 4. Los datos JSON obtenidos de la API se procesan y devuelven. En caso de error, se captura el fallo y se registra en la consola, devolviendo un mensaje de error personalizado.
+// 5. La función 'getAllPokemon' realiza una solicitud GET a la API para obtener una lista completa de Pokémon, con parámetros como 'limit' y 'offset' para controlar el alcance de los resultados.
+// 6. Si se proporciona un término de búsqueda ('searchTerm'), filtra los resultados por nombre usando un filtro case-insensitive. Si no, devuelve todos los Pokémon encontrados.
+// 7. Ambas funciones están diseñadas para ser asíncronas, utilizando 'await' para simplificar la gestión de promesas y asegurar un código más legible.
+// 8. Finalmente, se exporta un objeto que contiene las dos funciones, permitiendo que otros módulos las usen para realizar operaciones relacionadas con Pokémon.
