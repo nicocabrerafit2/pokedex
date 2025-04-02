@@ -2,10 +2,10 @@
   "name": "pokedex",
   "version": "1.0.0",
   "description": "Es un buscador de pokemones, realizado con node.js",
-  "main": "./src/app.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node ./src/app.js"
   },
   "keywords": [],
   "author": "Nicolas D. Cabrera",
